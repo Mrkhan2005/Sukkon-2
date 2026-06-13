@@ -1,0 +1,6 @@
+{
+  "name": "Sukoon",
+  "description": "Karachi's premium professional home massage and luxury wellness service platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
