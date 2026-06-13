@@ -6,9 +6,9 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand-teal: #0F766E;
-  --color-brand-emerald: #10B981;
-  --color-brand-gold: #F59E0B;
+  --color-brand-teal: #DC2626;
+  --color-brand-emerald: #2563EB;
+  --color-brand-gold: #E11D48;
   
   --animate-float-slow: float 8s ease-in-out infinite;
   --animate-float-medium: float 5s ease-in-out infinite;
@@ -107,13 +107,13 @@
 
 /* Gradients for Luxury feels */
 .gradient-text {
-  background: linear-gradient(135deg, #0F766E 0%, #10B981 50%, #F59E0B 100%);
+  background: linear-gradient(135deg, #DC2626 0%, #8B5CF6 50%, #2563EB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .dark .gradient-text {
-  background: linear-gradient(135deg, #38BDF8 0%, #34D399 50%, #FBBF24 100%);
+  background: linear-gradient(135deg, #EF4444 0%, #A78BFA 50%, #3B82F6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

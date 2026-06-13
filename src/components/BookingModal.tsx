@@ -304,7 +304,7 @@ Please confirm availability of a therapist!`;
               </div>
 
               {/* Secure standard note */}
-              <div className="p-3.5 rounded-2xl bg-teal-50/50 dark:bg-teal-950/20 border border-teal-100/30 dark:border-teal-900/30 flex items-start gap-2.5 text-xs text-slate-500 dark:text-slate-400">
+              <div className="p-3.5 rounded-2xl bg-red-50/20 dark:bg-red-950/10 border border-red-100/20 dark:border-red-900/20 flex items-start gap-2.5 text-xs text-slate-500 dark:text-slate-400">
                 <ShieldAlert className="w-4 h-4 text-brand-teal dark:text-brand-emerald flex-shrink-0 mt-0.5" />
                 <p>
                   <strong>No Upfront Charges Required:</strong> You will pay locally in cash or online bank transfers after your therapeutic session concludes. All therapists are fully background checked.
@@ -323,7 +323,7 @@ Please confirm availability of a therapist!`;
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 py-3.5 bg-gradient-to-r from-brand-teal to-brand-emerald hover:opacity-95 active:scale-95 text-white font-semibold text-sm rounded-xl shadow-lg shadow-teal-700/10 dark:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="flex-1 py-3.5 bg-gradient-to-r from-brand-teal to-brand-emerald hover:opacity-95 active:scale-95 text-white font-semibold text-sm rounded-xl shadow-lg shadow-red-700/10 dark:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {loading ? "Processing..." : "Confirm Booking"}
                 </button>

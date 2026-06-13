@@ -7,7 +7,6 @@ import {
   Laptop, HardHat, FileText, Sun, Moon, HelpCircle, AlertCircle
 } from 'lucide-react';
 import { Therapist, ServicePackage, ClientReview, DashboardStats } from './types';
-import AIConsultant from './components/AIConsultant';
 import BookingModal from './components/BookingModal';
 import AdminPanel from './components/AdminPanel';
 
@@ -109,10 +108,10 @@ export default function App() {
   };
 
   const trustBadges = [
-    { title: 'Verified Therapists', desc: '100% background and bio-metric checked', bg: 'bg-teal-50 dark:bg-slate-900 border-teal-100/30' },
-    { title: 'Professional Training', desc: 'Medical-grade mobility & relaxation training', bg: 'bg-emerald-50 dark:bg-slate-900 border-emerald-100/30' },
-    { title: 'Family-Friendly', desc: 'Strict protocols, gender matching, and total privacy', bg: 'bg-amber-50 dark:bg-slate-900 border-amber-100/30' },
-    { title: 'Hygiene Standard', desc: 'Single-use sanitized linen, natural cold-pressed oils', bg: 'bg-teal-50 dark:bg-slate-900 border-teal-100/30' }
+    { title: 'Verified Therapists', desc: '100% background and bio-metric checked', bg: 'bg-red-50/30 dark:bg-slate-900 border-red-100/30' },
+    { title: 'Professional Training', desc: 'Medical-grade mobility & relaxation training', bg: 'bg-blue-50/30 dark:bg-slate-900 border-blue-100/30' },
+    { title: 'Family-Friendly', desc: 'Strict protocols, gender matching, and total privacy', bg: 'bg-blue-50/30 dark:bg-slate-900 border-blue-100/30' },
+    { title: 'Hygiene Standard', desc: 'Single-use sanitized linen, natural cold-pressed oils', bg: 'bg-red-50/30 dark:bg-slate-900 border-red-100/30' }
   ];
 
   const serviceCategories = [
@@ -181,15 +180,71 @@ export default function App() {
   ];
 
   return (
-    <div className={`min-h-screen bg-slate-50 text-slate-800 font-sans transition-all duration-300 dark:bg-[#0B1120] dark:text-slate-100 ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`min-h-screen bg-slate-50 text-slate-800 font-sans transition-all duration-300 dark:bg-[#0B1120] dark:text-slate-100 relative overflow-x-hidden ${isDarkMode ? 'dark' : ''}`}>
       
+      {/* Premium Full-Page Floating Background Orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <motion.div
+          animate={{
+            x: [0, 80, -45, 30, 0],
+            y: [0, -110, 60, -50, 0],
+            scale: [1, 1.2, 0.85, 1.1, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/12 left-[5%] w-[450px] h-[450px] rounded-full bg-red-500/5 dark:bg-red-500/8 blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -70, 90, -30, 0],
+            y: [0, 130, -70, 40, 0],
+            scale: [1, 0.85, 1.2, 0.95, 1],
+          }}
+          transition={{
+            duration: 32,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-[40%] right-[5%] w-[500px] h-[500px] rounded-full bg-blue-500/5 dark:bg-blue-500/8 blur-[140px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, 50, -80, 60, 0],
+            y: [0, 90, -90, -40, 0],
+            scale: [1, 1.25, 0.8, 1.15, 1],
+          }}
+          transition={{
+            duration: 28,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-[75%] left-[20%] w-[380px] h-[380px] rounded-full bg-rose-500/5 dark:bg-rose-500/5 blur-[110px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -90, 60, -40, 0],
+            y: [0, -60, 100, -50, 0],
+            scale: [1, 1.15, 0.85, 1.1, 1],
+          }}
+          transition={{
+            duration: 36,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-[5%] left-[10%] w-[420px] h-[420px] rounded-full bg-indigo-500/5 dark:bg-indigo-600/5 blur-[130px]"
+        />
+      </div>
+
       {/* Sticky Header */}
       <header className="sticky top-0 z-40 w-full glass-nav flex items-center h-20 px-4 md:px-8 transition-all">
         <div className="w-full max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-7">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2">
-              <span className="p-2 bg-brand-teal text-white rounded-xl font-display font-bold text-xl tracking-wider shadow-md shadow-teal-500/10">
+              <span className="p-2 bg-brand-teal text-white rounded-xl font-display font-bold text-xl tracking-wider shadow-md shadow-red-500/10">
                 S
               </span>
               <span className="font-display font-bold text-2xl tracking-normal text-slate-900 dark:text-white">
@@ -232,7 +287,7 @@ export default function App() {
             {/* Main Book Button */}
             <button
               onClick={() => handleOpenBooking()}
-              className="hidden md:flex py-2.5 px-5 bg-brand-teal hover:opacity-95 text-white rounded-xl shadow-lg shadow-teal-500/10 font-semibold text-xs tracking-wide transition-all active:scale-95 cursor-pointer"
+              className="hidden md:flex py-2.5 px-5 bg-brand-teal hover:opacity-95 text-white rounded-xl shadow-lg shadow-red-500/10 font-semibold text-xs tracking-wide transition-all active:scale-95 cursor-pointer"
             >
               Book Home Care
             </button>
@@ -292,7 +347,7 @@ export default function App() {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/5 dark:bg-teal-500/10 border border-brand-teal/10 text-brand-teal dark:text-brand-emerald text-xs font-semibold tracking-wide"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/5 dark:bg-red-500/10 border border-brand-teal/10 text-brand-teal dark:text-brand-emerald text-xs font-semibold tracking-wide"
             >
               <Sparkles className="w-4 h-4 animate-pulse-glow" /> Healthcare Standard In-Home Wellness
             </motion.div>
@@ -320,7 +375,7 @@ export default function App() {
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 pt-2">
               <button
                 onClick={() => handleOpenBooking()}
-                className="w-full sm:w-auto py-4 px-8 bg-gradient-to-r from-brand-teal to-brand-emerald hover:opacity-95 text-white font-semibold text-sm rounded-2xl shadow-xl hover:shadow-teal-700/20 transition-all active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto py-4 px-8 bg-gradient-to-r from-brand-teal to-brand-emerald hover:opacity-95 text-white font-semibold text-sm rounded-2xl shadow-xl hover:shadow-red-700/20 transition-all active:scale-95 cursor-pointer"
               >
                 Book Session Now
               </button>
@@ -359,7 +414,7 @@ export default function App() {
             {/* Soft geometric luxury frame representing a massage table or peaceful aura */}
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-teal/10 to-brand-emerald/10 rounded-[3rem] filter blur-xl transform rotate-3"></div>
             
-            <div className="relative w-full max-w-sm aspect-[4/5] bg-gradient-to-b from-teal-50 to-white dark:from-slate-900 dark:to-slate-950 rounded-[2.5rem] border border-slate-100 dark:border-slate-850 shadow-2xl p-6 overflow-hidden flex flex-col justify-between group">
+            <div className="relative w-full max-w-sm aspect-[4/5] bg-gradient-to-b from-red-500/5 to-white dark:from-slate-900 dark:to-slate-950 rounded-[2.5rem] border border-slate-100 dark:border-slate-850 shadow-2xl p-6 overflow-hidden flex flex-col justify-between group">
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
                   <span className="p-3 bg-brand-teal/10 text-brand-teal rounded-2xl block">
@@ -375,7 +430,7 @@ export default function App() {
               </div>
 
               {/* Mini Interactive map indicator */}
-              <div className="p-4 bg-teal-500/5 dark:bg-emerald-500/5 border border-brand-teal/10 rounded-2xl flex items-center gap-3">
+              <div className="p-4 bg-red-500/5 dark:bg-blue-500/5 border border-brand-teal/10 rounded-2xl flex items-center gap-3">
                 <div className="flex -space-x-3">
                   <div className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-300 font-bold text-slate-800 text-[10px] flex items-center justify-center">M</div>
                   <div className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 font-bold text-slate-800 text-[10px] flex items-center justify-center">F</div>
@@ -390,19 +445,32 @@ export default function App() {
         </section>
 
         {/* SECTION 2: Trust Features section */}
-        <section id="about" className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+        <section id="about" className="space-y-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
               Why Karachi Chooses Sukoon
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-450 leading-relaxed font-semibold">
               The professional alternative to unverified therapists. Bringing five-star international spa expectations to local residential neighborhoods.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {trustBadges.map((badge, i) => (
-              <div key={i} className={`p-6 rounded-2xl border ${badge.bg} transition-all duration-300 hover:shadow-lg space-y-3.5`}>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className={`p-6 rounded-2xl border ${badge.bg} transition-all duration-300 hover:shadow-lg space-y-3.5`}
+              >
                 <div className="w-10 h-10 rounded-xl bg-brand-teal/10 text-brand-teal flex items-center justify-center font-bold">
                   {i === 0 && <ShieldCheck className="w-5.5 h-5.5" />}
                   {i === 1 && <Award className="w-5.5 h-5.5" />}
@@ -411,40 +479,38 @@ export default function App() {
                 </div>
                 <h3 className="font-semibold text-base text-slate-800 dark:text-white">{badge.title}</h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400">{badge.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
-        {/* INTEGRATION BONUS: Deep Thinking Specialist Panel */}
-        <section id="ai-advisor" className="space-y-10 py-4">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
-            <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
-              Clinical Spa Consultation AI
-            </h2>
-            <p className="text-sm text-slate-500 dark:text-slate-450 leading-relaxed font-semibold">
-              Submit your wellness concerns, elderly joint details, or muscular tension points. Our Deep Thinking assistant will prescribe the perfect custom session details.
-            </p>
-          </div>
 
-          <AIConsultant />
-        </section>
 
         {/* SECTION 3: Beautiful Services section */}
-        <section id="services" className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+        <section id="services" className="space-y-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
               Treatment & Rehabilitation Services
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-450 leading-relaxed">
               Every appointment features custom sanitized materials, premium plant-extracted essential oils, and personalized tissue metrics.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {serviceCategories.map((srv, i) => (
-              <div 
+              <motion.div 
                 key={i} 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 hover:border-brand-teal/30 dark:hover:border-brand-emerald/30 group transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
               >
                 <div className="space-y-4">
@@ -471,28 +537,38 @@ export default function App() {
                     Select Care
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* SECTION 4: Package details (Comparison & pricing layout) */}
-        <section id="packages" className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+        <section id="packages" className="space-y-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
               Bespoke Pricing Packages
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-450">
               No hidden fees, no travel charges. Honest, transparent residential wellness.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {(services.length > 0 ? services : defaultServicesFallback).map((pkg) => {
+            {(services.length > 0 ? services : defaultServicesFallback).map((pkg, i) => {
               const isPopular = pkg.name.toLowerCase().includes('recovery');
               return (
-                <div
+                <motion.div
                   key={pkg.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
                   className={`relative p-8 rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl flex flex-col justify-between min-h-[480px] ${
                     isPopular 
                       ? 'bg-gradient-to-b from-slate-900 via-[#0B1120] to-slate-900 text-white border-2 border-brand-emerald dark:border-brand-emerald' 
@@ -556,32 +632,44 @@ export default function App() {
                       <MessageCircle className="w-4 h-4 fill-emerald-500 text-emerald-500" /> WhatsApp Inquiry
                     </button>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </section>
 
         {/* INTERACTIVE COMPONENT: Karachi Service Areas & Map Overlay */}
-        <section id="map" className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+        <section id="map" className="space-y-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
               Karachi Active Service Zones
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-450">
               Hover or click any active zone indicator. Our therapists cover these neighbourhoods 24/7.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Interactive map visualization */}
-            <div className="lg:col-span-8 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 height-[340px] md:height-[420px] bg-sky-50 dark:bg-slate-950 relative min-h-[380px]">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-8 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 height-[340px] md:height-[420px] bg-sky-50 dark:bg-slate-950 relative min-h-[380px]"
+            >
               
               {/* Complex stylistic grids and road vectors representing Karachi sea coordinates */}
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px] dark:[background-size:16px_16px] dark:bg-[radial-gradient(#fff_1px,transparent_1px)]"></div>
               
               {/* Arabian Sea styled area */}
-              <div className="absolute bottom-0 left-0 w-[45%] h-[35%] bg-teal-100/30 dark:bg-teal-900/10 rounded-tr-[8rem] border-t border-r border-teal-200/35">
+              <div className="absolute bottom-0 left-0 w-[45%] h-[35%] bg-blue-100/30 dark:bg-blue-900/10 rounded-tr-[8rem] border-t border-r border-blue-200/35">
                 <span className="absolute bottom-5 left-5 font-mono text-[10px] tracking-widest uppercase font-bold text-slate-400">Arabian Sea Bounds</span>
               </div>
 
@@ -612,20 +700,24 @@ export default function App() {
                 </h4>
                 <p className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold mt-1">DHA · Clifton · PECHS & beyond</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Area Grid Details */}
             <div className="lg:col-span-4 space-y-4">
               <h3 className="font-display font-semibold text-xl text-slate-800 dark:text-slate-100">Covered Neighborhoods</h3>
               <div className="grid grid-cols-2 gap-2.5">
                 {KARACHI_MAP_AREAS.map((area, idx) => (
-                  <div 
+                  <motion.div 
                     key={idx}
+                    initial={{ opacity: 0, scale: 0.94 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.4, delay: (idx % 4) * 0.05, ease: "easeOut" }}
                     className="p-3 rounded-xl border border-slate-100 dark:border-slate-850 hover:border-brand-emerald bg-white dark:bg-slate-900 transition-all flex items-center gap-2 group"
                   >
                     <span className="w-2 h-2 rounded-full bg-brand-emerald group-hover:scale-125 transition-transform" />
                     <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">{area.name}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
               <p className="text-[10px] text-slate-400 leading-normal">
@@ -636,20 +728,30 @@ export default function App() {
         </section>
 
         {/* SECTION 5: Therapist Profiles */}
-        <section id="therapists" className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+        <section id="therapists" className="space-y-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
               Karachi Certified Wellness Roster
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-450 leading-relaxed">
               Every staff member is fully background validated, government certified, and expert in specialized clinical care.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {(therapists.length > 0 ? therapists : defaultTherapistsFallback).slice(0, 4).map((th) => (
-              <div
+            {(therapists.length > 0 ? therapists : defaultTherapistsFallback).slice(0, 4).map((th, i) => (
+              <motion.div
                 key={th.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div className="space-y-4">
@@ -687,24 +789,37 @@ export default function App() {
                     Match with {th.name.split(' ')[0]}
                   </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* SECTION 6: Testimonials and Review creation */}
-        <section id="testimonials" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <section id="testimonials" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
           
           {/* Reviews list */}
-          <div className="lg:col-span-7 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-6"
+          >
             <div className="space-y-2">
               <span className="text-[11px] uppercase tracking-widest font-mono font-bold text-brand-teal dark:text-brand-emerald">Karachi Testimonials</span>
               <h2 className="font-display font-semibold text-3xl text-slate-900 dark:text-white">Reviewed By Families & Professionals</h2>
             </div>
 
             <div className="space-y-4">
-              {(reviews.length > 0 ? reviews : defaultTestimonialsFallback).map((rev) => (
-                <div key={rev.id} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 space-y-3 shadow-xs">
+              {(reviews.length > 0 ? reviews : defaultTestimonialsFallback).map((rev, i) => (
+                <motion.div
+                  key={rev.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 space-y-3 shadow-xs"
+                >
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="font-bold text-sm text-slate-800 dark:text-white">{rev.author}</p>
@@ -715,13 +830,19 @@ export default function App() {
                     </div>
                   </div>
                   <p className="text-xs text-slate-600 dark:text-slate-350 italic leading-relaxed">"{rev.text}"</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Review form */}
-          <div className="lg:col-span-5 p-6 md:p-8 rounded-3xl glass-panel border border-slate-200 dark:border-slate-800 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 p-6 md:p-8 rounded-3xl glass-panel border border-slate-200 dark:border-slate-800 space-y-6"
+          >
             <h3 className="font-display font-semibold text-xl text-slate-800 dark:text-white">Share Your Review</h3>
             <p className="text-xs text-slate-500 dark:text-slate-400">If you have recently concluded a therapeutic session with Sukoon, please share your rating and area. Your comments help other Karachi families.</p>
 
@@ -791,23 +912,36 @@ export default function App() {
                 <p className="text-xs text-slate-500">To maintain family friendly standards and screen fake comments, your review has been submitted to current operational moderators. It will go live shortly.</p>
               </div>
             )}
-          </div>
+          </motion.div>
         </section>
 
         {/* SECTION 7: SEO Optimized Blogs */}
-        <section id="blog" className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+        <section id="blog" className="space-y-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
               Sukoon Wellness Portal & Guides
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-450 leading-relaxed font-semibold">
               SEO Optimized evidence-led insights written by our internal licensed home healthcare physiologists.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {blogPosts.map((post, i) => (
-              <article key={i} className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 space-y-4 flex flex-col justify-between group cursor-pointer hover:shadow-lg transition-transform">
+              <motion.article 
+                key={i}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 space-y-4 flex flex-col justify-between group cursor-pointer hover:shadow-lg transition-transform"
+              >
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-[10px] font-mono uppercase font-bold">
                     <span className="text-brand-teal">{post.tag}</span>
@@ -824,28 +958,38 @@ export default function App() {
                 <div className="pt-4 border-t border-slate-50 dark:border-slate-805 text-xs font-semibold text-slate-400 group-hover:text-brand-teal dark:group-hover:text-brand-emerald flex items-center gap-1">
                   Read full research paper <Sparkles className="w-3.5 h-3.5" />
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </section>
 
         {/* SECTION 8: FAQ accordion */}
-        <section id="faqs" className="space-y-12 max-w-3xl mx-auto">
-          <div className="text-center space-y-4">
+        <section id="faqs" className="space-y-12 max-w-3xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center space-y-4"
+          >
             <h2 className="font-display font-semibold text-3xl md:text-4xl text-slate-900 dark:text-white">
               Frequently Asked Questions
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-450">
               Clear, transparent clarifications on our home wellness operations.
             </p>
-          </div>
+          </motion.div>
 
           <div className="space-y-4">
             {faqItems.map((faq, idx) => {
               const isOpen = openFaqIndex === idx;
               return (
-                <div 
+                <motion.div 
                   key={idx} 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
                   className="p-4.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 hover:border-slate-200 transition-all"
                 >
                   <button
@@ -868,7 +1012,7 @@ export default function App() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               );
             })}
           </div>
